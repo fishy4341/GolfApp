@@ -1,0 +1,8 @@
+.playerInput {
+  width: 100%;
+}
+.buttondiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

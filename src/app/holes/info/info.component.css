@@ -1,0 +1,9 @@
+.info-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.info-card p {
+  margin-bottom: 0;
+}

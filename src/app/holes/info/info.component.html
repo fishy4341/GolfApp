@@ -1,0 +1,24 @@
+<mat-card *ngIf="hole$ | async as hole" class="">
+  <div class="row info-card">
+    <p>Hole: {{hole.id + 1}}</p>
+    <p>Par: {{hole.par}}</p>
+    <p>Yards: {{hole.yards}}</p>
+    <p>Handicap: {{hole.hcp}}</p>
+  </div>
+  <div class="row">
+    <table class="table-sm mx-auto">
+      <tbody *ngIf="player$ | async as players">
+      <tr *ngFor="let player of players" class="mx-auto">
+        <th scope="row">{{player.name}}</th>
+        <td>Out Score: {{player.outscore}}</td>
+        <td>In Score: {{player.inscore}}</td>
+        <td>Total Score: {{player.total}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+</mat-card>
+

@@ -1,0 +1,13 @@
+.banner {
+  background-image: url("https://via.placeholder.com/1000x1000");
+  height: calc(100% - 64px);
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner-text{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

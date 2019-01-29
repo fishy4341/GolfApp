@@ -1,0 +1,11 @@
+<app-info></app-info>
+<mat-card *ngIf="players$ | async as players">
+  <mat-form-field class="example-full-width playerInput" *ngFor="let player of players">
+    <input matInput placeholder="{{player.name}}'s Score" [(ngModel)]="player.score[holeId]" type="number">
+  </mat-form-field>
+  <div class="buttondiv">
+    <button mat-button color="accent" (click)="previousHole()" *ngIf="holeId > 0">Previous Hole</button>
+    <button mat-button color="accent" (click)="nextHole(players)" *ngIf="holeId != 17">Next Hole</button>
+    <button mat-button color="accent" (click)="completeGame(players)" *ngIf="holeId == 17">Complete Game</button>
+  </div>
+</mat-card>

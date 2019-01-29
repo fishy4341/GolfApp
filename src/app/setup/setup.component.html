@@ -1,0 +1,65 @@
+<mat-card>
+  <!--<mat-form-field>-->
+    <!--<mat-select [(value)]="selected" placeholder="Select Course" >-->
+      <!--<mat-option *ngFor="let course of courseArray" value="{{course.id}}" (click)="getCourse(selected)">{{course.name}}</mat-option>-->
+    <!--</mat-select>-->
+  <!--</mat-form-field>-->
+  <!--<mat-form-field>-->
+    <!--<mat-select [(value)]="tees" placeholder="Select Course" *ngIf="teeBoxes" style="margin-top: 40px;">-->
+      <!--<mat-option *ngFor="let tee of teeBoxes" value="{{tee.id}}" (click)="getCourse(selected)">{{tee.teeType}}</mat-option>-->
+    <!--</mat-select>-->
+  <!--</mat-form-field>-->
+  <!--<h5>Select Course:</h5>-->
+  <!--<mat-select [(value)]="selected" placeholder="Select Course" >-->
+    <!--<mat-option *ngFor="let course of courseArray" value="{{course.id}}" (click)="getCourse(selected)">{{course.name}}</mat-option>-->
+  <!--</mat-select>-->
+
+
+  <!--<h5 *ngIf="teeBoxes" style="margin-top: 40px;">Select Tee Type:</h5>-->
+
+  <!--<mat-select [(value)]="tees" placeholder="Select Course" *ngIf="teeBoxes" (selectionChange)="setTee(tees)">-->
+    <!--<mat-option *ngFor="let tee of teeBoxes" value="{{tee.id}}" >{{tee.teeType}}</mat-option>-->
+  <!--</mat-select>-->
+
+  <!--<h5 style="margin-top: 40px;">Number of Players:</h5>-->
+
+
+  <mat-form-field>
+    <mat-select [(ngModel)]="courseId" (selectionChange)="getCourse()" placeholder="Choose Course" >
+      <!--<mat-option [value]="undefined">All</mat-option>-->
+      <!--<mat-option *ngFor="let company of companies$ | async" [value]="company.$key">{{company.name}}</mat-option>-->
+      <mat-option *ngFor='let course of courseArray' [value]="course.id">{{ course.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select [(ngModel)]="selectedTeeBox" placeholder="Choose Tee Box" >
+      <!--<mat-option [value]="undefined">All</mat-option>-->
+      <!--<mat-option *ngFor="let company of companies$ | async" [value]="company.$key">{{company.name}}</mat-option>-->
+      <mat-option *ngFor='let tee of selectedCourse?.holes[0].teeBoxes; index as index' [value]="index">{{ tee.teeType }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select [(value)]="players" placeholder="Number of Players" (selectionChange)="setPlayers(players)">
+      <mat-option value=1 >1 Player</mat-option>
+      <mat-option value=2 >2 Players</mat-option>
+      <mat-option value=3 >3 Players</mat-option>
+      <mat-option value=4 >4 Players</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngFor="let player of players; let i = index">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="player name" [(ngModel)]="players[i].name">
+    </mat-form-field>
+  </div>
+
+
+
+
+</mat-card>
+
+
+
+<button mat-raised-button (click)="play()" color="accent" [disabled]="! ready">Let's Play</button>
