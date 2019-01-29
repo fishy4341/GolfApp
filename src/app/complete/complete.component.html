@@ -1,3 +1,47 @@
-<p>
-  complete works!
-</p>
+<mat-card>
+  <mat-card-title>
+    Game Complete!
+  </mat-card-title>
+  <mat-card-content>
+    <div class="row">
+      <table class="table-sm mx-auto">
+        <thead>
+          <tr>
+            <th scope="col">Player Name</th>
+            <th scope="col">Hole 1:</th>
+            <th scope="col">Hole 2:</th>
+            <th scope="col">Hole 3:</th>
+            <th scope="col">Hole 4:</th>
+            <th scope="col">Hole 5:</th>
+            <th scope="col">Hole 6:</th>
+            <th scope="col">Hole 7:</th>
+            <th scope="col">Hole 8:</th>
+            <th scope="col">Hole 9:</th>
+            <th scope="col">Hole 10:</th>
+            <th scope="col">Hole 11:</th>
+            <th scope="col">Hole 12:</th>
+            <th scope="col">Hole 13:</th>
+            <th scope="col">Hole 14:</th>
+            <th scope="col">Hole 15:</th>
+            <th scope="col">Hole 16:</th>
+            <th scope="col">Hole 17:</th>
+            <th scope="col">Hole 18:</th>
+            <th scope="col">In Score:</th>
+            <th scope="col">Out Score:</th>
+            <th scope="col">Total Score:</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="players$ | async as players">
+        <tr *ngFor="let player of players" class="mx-auto">
+
+          <th scope="row">{{player.name}}</th>
+          <td *ngFor="let hole of player.score">{{hole}}</td>
+          <td>{{player.outscore}}</td>
+          <td>{{player.inscore}}</td>
+          <td>{{player.total}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
